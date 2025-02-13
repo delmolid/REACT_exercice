@@ -65,6 +65,25 @@ class ToDo extends React.Component {
     );
   }
 };
+
+
+const Items = (props) => {
+  return <h1>Current Quantity of Items in Cart: {props.quantity}</h1>;
+};
+
+// Default props (au cas où la prop "quantity" n'est pas fournie)
+Items.defaultProps = { quantity: 10 };
+
+class ShoppingCart extends React.Component {
+  constructor(props) {
+    super(props);
+  }
+  render() {
+    return <Items quantity= {10} />; // 🔹 Ajout de quantity={10}
+  }
+}
+
+
 // Rendu du composant dans l'élément avec l'ID "root"
 // ReactDOM.render(<Calendar />, document.getElementById("root"));
 ReactDOM.render(<ToDo />, document.getElementById("root"));
