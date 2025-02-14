@@ -1,5 +1,7 @@
 <body>
     <div id="root"></div>
+    <script src="https://unpkg.com/prop-types@15.7.2/prop-types.js"></script>
+
     <script src="https://unpkg.com/react@16.12.0/umd/react.development.js"></script>
     <script src="https://unpkg.com/react-dom@16.12.0/umd/react-dom.development.js"></script>
     <script src="https://unpkg.com/@babel/standalone@7.8.3/babel.js"></script>
@@ -65,14 +67,16 @@ class ToDo extends React.Component {
     );
   }
 };
-
-
 const Items = (props) => {
   return <h1>Current Quantity of Items in Cart: {props.quantity}</h1>;
 };
 
 // Default props (au cas où la prop "quantity" n'est pas fournie)
 Items.defaultProps = { quantity: 10 };
+
+Items.propTypes = {
+  quantity: PropTypes.number.isRequired 
+}
 
 class ShoppingCart extends React.Component {
   constructor(props) {
@@ -86,6 +90,8 @@ class ShoppingCart extends React.Component {
 
 // Rendu du composant dans l'élément avec l'ID "root"
 // ReactDOM.render(<Calendar />, document.getElementById("root"));
-ReactDOM.render(<ToDo />, document.getElementById("root"));
+// ReactDOM.render(<ToDo />, document.getElementById("root"));
+
+ReactDOM.render(<ShoppingCart/>, document.getElementById("root"));
     </script>
   </body>
